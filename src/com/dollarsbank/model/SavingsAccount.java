@@ -1,5 +1,5 @@
 package com.dollarsbank.model;
 
-public class SavingsAccount {
+public class SavingsAccount extends Account {
 
 }
