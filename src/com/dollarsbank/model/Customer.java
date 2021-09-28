@@ -1,17 +1,30 @@
 package com.dollarsbank.model;
 
-public class Customer {
+import java.time.LocalDateTime;
+
+public class Customer extends SavingsAccount {
 
 	private String name;
 	private String address;
 	private String phoneNumber;
+	private LocalDateTime ldt = LocalDateTime.now();
 	
-	public Customer(String name, String address, String phoneNumber) {
+	public Customer(String name, String address, String phoneNumber, String accountID, String password, double balance) {
 		super();
 		this.name = name;
 		this.address = address;
 		this.phoneNumber = phoneNumber;
+		setAccountID(accountID);
+		setPassword(password);
+		setBalance(balance);
+		
+		addHistory("Initial balance in account ["+ accountID +"]\n" + "Balance - " + balance + " as of " + ldt + "\n");
+		System.out.println();
 	}
+	
+	public Customer() {
+		super();
+		}
 
 	public String getName() {
 		return name;
@@ -41,6 +54,5 @@ public class Customer {
 	public String toString() {
 		return "Customer [name=" + name + ", address=" + address + ", phoneNumber=" + phoneNumber + "]";
 	}
-	
 	
 }
