@@ -5,6 +5,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
+import com.dollarsbank.utility.ColorsUtility;
 import com.dollarsbank.utility.ConsolePrinterUtility;
 import com.dollarsbank.model.Customer;
 
@@ -32,10 +33,9 @@ int option = 0;
 		switch (option)
 		{
 			case 1:
-//				System.out.println();
-//				createAccount();
-//				System.out.println();
-//				scan.reset();
+				System.out.println();
+				createAccount();
+				scan.reset();
 				break;
 				
 			case 2:
@@ -69,9 +69,9 @@ int option = 0;
 		String password = "";
 
 		cpu.login();
-		System.out.println("Account Id: ");
+		System.out.println(ColorsUtility.ANSI_CYAN + "Account Id: " + ColorsUtility.ANSI_RESET);
 		accountID = scan.nextLine();
-		System.out.println("Password: ");
+		System.out.println(ColorsUtility.ANSI_CYAN + "Password: " + ColorsUtility.ANSI_RESET);
 		password = scan.nextLine();
 		System.out.println();
 		
@@ -88,6 +88,38 @@ int option = 0;
 				cpu.invalidCreds();
 			}
 		}
+	}
+	
+	public void createAccount() {
+		String name = "";
+		String address = "";
+		String phoneNumber = "";
+		String accountId = "";
+		String password = "";
+		double initalDeposit = 0;
+		
+		System.out.println(ColorsUtility.ANSI_CYAN + "Customer Name: " + ColorsUtility.ANSI_RESET);
+		scan.hasNextLine();
+		name = scan.nextLine();
+		
+		System.out.println(ColorsUtility.ANSI_CYAN + "Customer Addresss: " + ColorsUtility.ANSI_RESET);
+		address = scan.nextLine();
+		
+		System.out.println(ColorsUtility.ANSI_CYAN + "Customer Phone Number: " + ColorsUtility.ANSI_RESET);
+		phoneNumber = scan.nextLine();
+		
+		System.out.println(ColorsUtility.ANSI_CYAN + "Account Id: " + ColorsUtility.ANSI_RESET);
+		accountId = scan.nextLine();
+		
+		System.out.println(ColorsUtility.ANSI_CYAN + "Password: " + ColorsUtility.ANSI_RESET);
+		password = scan.nextLine();
+		
+		System.out.println(ColorsUtility.ANSI_CYAN + "Initial Deposit Amount: " + ColorsUtility.ANSI_RESET);
+		initalDeposit = scan.nextDouble();
+		
+		scan.nextLine();
+		list.add(new Customer(name, address, phoneNumber, accountId, password, initalDeposit));
+		run();
 	}
 
 	public void welcomeCustomer(int i) {
@@ -112,7 +144,7 @@ int option = 0;
 			switch (welcomeOption)
 			{
 				case 1:
-					System.out.println("How much money would you like to deposit?");
+					System.out.println(ColorsUtility.ANSI_CYAN + "How much money would you like to deposit? " + ColorsUtility.ANSI_RESET);
 					try {
 						money = scan.nextDouble();
 						scan.nextLine();
@@ -134,7 +166,7 @@ int option = 0;
 					break;
 					
 				case 2:
-					System.out.println("How much money would you like to withdraw?");
+					System.out.println(ColorsUtility.ANSI_CYAN + "How much money would you like to withdraw? " + ColorsUtility.ANSI_RESET);
 					try {
 						money = scan.nextDouble();
 						scan.nextLine();
@@ -159,7 +191,7 @@ int option = 0;
 					boolean canTransfer = false;
 					String accountID = "";
 					
-					System.out.println("Which Account Id do you want to transfer to?");
+					System.out.println(ColorsUtility.ANSI_CYAN + "Which Account Id do you want to transfer to? " + ColorsUtility.ANSI_RESET);
 					
 					try {
 						accountID = scan.nextLine().toLowerCase();
@@ -179,7 +211,7 @@ int option = 0;
 							break;
 
 						}
-						System.out.println("How much are you transfering to " + accountID);
+						System.out.println(ColorsUtility.ANSI_CYAN + "How much are you transfering to " + accountID  + ColorsUtility.ANSI_RESET);
 						money = scan.nextDouble();
 						scan.nextLine();
 						
