@@ -75,19 +75,19 @@ int option = 0;
 		password = scan.nextLine();
 		System.out.println();
 		
-		for (Customer customer : list)
-		{
-			try {
+		try {
+			for (Customer customer : list) {
 				if (customer.getAccountID().equals(accountID) && customer.getPassword().equals(password)) {
-				int i = list.indexOf(customer);
-				welcomeCustomer(i);
-				break;
+					int i = list.indexOf(customer);
+					welcomeCustomer(i);
+					break;
+						
 				}
+			}	
 			}catch (InputMismatchException e) {
-				scan.nextLine();
 				cpu.invalidCreds();
+				run();
 			}
-		}
 	}
 	
 	public void createAccount() {
@@ -117,7 +117,6 @@ int option = 0;
 		System.out.println(ColorsUtility.ANSI_CYAN + "Initial Deposit Amount: " + ColorsUtility.ANSI_RESET);
 		initalDeposit = scan.nextDouble();
 		
-		scan.nextLine();
 		list.add(new Customer(name, address, phoneNumber, accountId, password, initalDeposit));
 		run();
 	}
@@ -139,7 +138,7 @@ int option = 0;
 				scan.nextLine();
 				welcomeOption = 0;
 				cpu.invalidOption();
-
+				
 			}
 			switch (welcomeOption)
 			{
@@ -156,7 +155,7 @@ int option = 0;
 						}
 						else
 						{
-							System.out.println("Invalid input, please input >= 0");
+							System.out.println(ColorsUtility.ANSI_RED + "Invalid input, please input >= 0" + ColorsUtility.ANSI_RESET);
 							System.out.println();
 						}
 					}catch (InputMismatchException e) {
@@ -178,7 +177,7 @@ int option = 0;
 						}
 						else
 						{
-							System.out.println("Invalid input, please input >= 0 and <= balance\n" + "Balance = " + list.get(i).getBalance());
+							System.out.println(ColorsUtility.ANSI_RED + "Invalid input, please input >= 0 and <= balance\n" + "Balance = " + list.get(i).getBalance() + ColorsUtility.ANSI_RESET);
 							System.out.println();
 						}
 					}catch (InputMismatchException e) {
@@ -206,7 +205,7 @@ int option = 0;
 						}
 						if(!canTransfer)
 						{
-							System.out.println("Account doesn't exist! ");
+							System.out.println(ColorsUtility.ANSI_RED + "Account doesn't exist! " + ColorsUtility.ANSI_RESET);
 							System.out.println();
 							break;
 
@@ -225,7 +224,7 @@ int option = 0;
 						}
 						else
 						{
-							System.out.println("Invalid input, please input >= 0 and <= balance\n" + "Balance = "+list.get(i).getBalance());
+							System.out.println(ColorsUtility.ANSI_RED + "Invalid input, please input >= 0 and <= balance\n" + "Balance = "+list.get(i).getBalance() + ColorsUtility.ANSI_RESET);
 							System.out.println();
 						}
 					}catch(InputMismatchException e)
