@@ -12,6 +12,8 @@ import com.dollarsbank.model.Customer;
 public class DollarsBankController {
 
 public static List<Customer> list = new ArrayList<Customer>();	
+
+//Adds initial accounts to the system
 static {
 	list.add(new Customer("Tom", "123 Drive", "123-456-7890", "001", "password", 500));
 	list.add(new Customer("Bill", "456 Drive", "987-654-3210", "002", "password", 100));
@@ -22,6 +24,7 @@ int option = 0;
 	public static ConsolePrinterUtility cpu = new ConsolePrinterUtility();
 	Scanner scan = new Scanner(System.in);
 	
+	//Switch case for running the initial starting menu
 	public Boolean run()
 	{
 		cpu.menu();
@@ -32,18 +35,21 @@ int option = 0;
 
 		switch (option)
 		{
+			//Create Account
 			case 1:
 				System.out.println();
 				createAccount();
 				scan.reset();
 				break;
 				
+			//Login
 			case 2:
 				System.out.println();
 				login();
 				scan.reset();
 				break;
 				
+			//Exit
 			case 3:
 				exit();
 				break;
@@ -58,11 +64,12 @@ int option = 0;
 		return true;
 	}
 	
-	
+	//Exit command
 	public void exit() {
 		System.exit(0);
 	}
 	
+	//Runs login menu
 	public void login()
 	{
 		String accountID = "";
@@ -76,6 +83,7 @@ int option = 0;
 		System.out.println();
 		
 		try {
+			//Check for matching accountID and password in the system
 			for (Customer customer : list) {
 				if (customer.getAccountID().equals(accountID) && customer.getPassword().equals(password)) {
 					int i = list.indexOf(customer);
@@ -90,6 +98,7 @@ int option = 0;
 			}
 	}
 	
+	//Method for creating a new account
 	public void createAccount() {
 		String name = "";
 		String address = "";
@@ -121,11 +130,13 @@ int option = 0;
 		run();
 	}
 
+	//Method that runs after successful login
 	public void welcomeCustomer(int i) {
 		boolean signOut = false;
 		double money = 0;
 		int welcomeOption = 0;
 		
+		//Check for being signed in or not
 		while(!signOut)
 		{
 			cpu.welcomeCust();
@@ -142,6 +153,7 @@ int option = 0;
 			}
 			switch (welcomeOption)
 			{
+				//Case for depositing money
 				case 1:
 					System.out.println(ColorsUtility.ANSI_CYAN + "How much money would you like to deposit? " + ColorsUtility.ANSI_RESET);
 					try {
@@ -164,6 +176,7 @@ int option = 0;
 
 					break;
 					
+				//Case for withdrawing money
 				case 2:
 					System.out.println(ColorsUtility.ANSI_CYAN + "How much money would you like to withdraw? " + ColorsUtility.ANSI_RESET);
 					try {
@@ -185,6 +198,7 @@ int option = 0;
 					}
 					break;
 					
+				//Case for transferring money
 				case 3:
 					int t = 0;
 					boolean canTransfer = false;
@@ -233,16 +247,19 @@ int option = 0;
 					}
 					break;
 					
+				//Case for displaying 5 most recent actions in history
 				case 4:
 					list.get(i).displayHistory();
 					System.out.println();
 					break;
 					
+				//Case for viewing all customer information
 				case 5:
 					cpu.customerInformation(list.get(i));
 					System.out.println();
 					break;
 					
+				//Signing out and going back to starting menu
 				case 6:
 					signOut = true;
 					System.out.println();

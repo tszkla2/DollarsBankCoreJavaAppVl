@@ -2,8 +2,10 @@ package com.dollarsbank.utility;
 
 import com.dollarsbank.model.Customer;
 
+//Class that sets up the way the console window looks
 public class ConsolePrinterUtility {
 	
+	//Initial menu
 	public void menu() {
 		System.out.println(ColorsUtility.ANSI_BLUE + "+---------------------------+");
 		System.out.println("|  TOM'S BANK Welcomes You! |");
@@ -15,12 +17,14 @@ public class ConsolePrinterUtility {
 		System.out.println(ColorsUtility.ANSI_GREEN + "Enter Choice (1,2, or 3):" + ColorsUtility.ANSI_RESET);
 	}
 	
+	//Login screen
 	public void login() {
 		System.out.println(ColorsUtility.ANSI_BLUE + "+-----------------------+");
 		System.out.println("|  Enter Login Details  |");
 		System.out.println("+-----------------------+" + ColorsUtility.ANSI_RESET);
 }
 	
+	//After logging in screen
 	public void welcomeCust()
 	{
 		System.out.println(ColorsUtility.ANSI_BLUE + "+----------------------+");
@@ -36,6 +40,7 @@ public class ConsolePrinterUtility {
 		System.out.println(ColorsUtility.ANSI_GREEN + "Enter Choice (1,2,3,4,5, or 6):" + ColorsUtility.ANSI_RESET);
 	}
 	
+	//Customer information screen
 	public void customerInformation(Customer customer) {
 		System.out.println(ColorsUtility.ANSI_BLUE + "+----------------------+");
 		System.out.println("|   Customer Details   |");
@@ -54,11 +59,13 @@ public class ConsolePrinterUtility {
 		System.out.println(" PHONE: " + customer.getPhoneNumber() + ColorsUtility.ANSI_RESET);
 	}
 	
+	//Display for invalid Credentials
 	public void invalidCreds()
 	{
 		System.out.println(ColorsUtility.ANSI_RED + "Invalid Credentials. Try Again!" + ColorsUtility.ANSI_RESET);
 	}
 	
+	//Display for invalid Options
 	public void invalidOption()
 	{
 		System.out.println(ColorsUtility.ANSI_RED + "Invalid Option. Try Again!" + ColorsUtility.ANSI_RESET);

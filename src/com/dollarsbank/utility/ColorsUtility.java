@@ -1,5 +1,6 @@
 package com.dollarsbank.utility;
 
+//Used to display various colors in the console
 public class ColorsUtility {
 
     public static final String ANSI_RESET = "\u001B[0m";
