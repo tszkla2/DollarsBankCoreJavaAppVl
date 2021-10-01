@@ -12,7 +12,7 @@ public class ConsolePrinterUtility {
 		System.out.println("2. Login");
 		System.out.println("3. Exit.");
 		System.out.println();
-		System.out.println(ColorsUtility.ANSI_GREEN + "Enter Choice (1,2, or 3) :" + ColorsUtility.ANSI_RESET);
+		System.out.println(ColorsUtility.ANSI_GREEN + "Enter Choice (1,2, or 3):" + ColorsUtility.ANSI_RESET);
 	}
 	
 	public void login() {
@@ -28,12 +28,12 @@ public class ConsolePrinterUtility {
 		System.out.println("+----------------------+" + ColorsUtility.ANSI_RESET);
 		System.out.println("1. Deposit Amount");
 		System.out.println("2. Withdraw Amount");
-		System.out.println("3. Funds Transfer.");
+		System.out.println("3. Funds Transfer");
 		System.out.println("4. View 5 Recent Transactions");
 		System.out.println("5. Display Customer Information");
 		System.out.println("6. Sign Out");
 		System.out.println();
-		System.out.println(ColorsUtility.ANSI_GREEN + "Enter Choice (1,2,3,4,5, or 6) :" + ColorsUtility.ANSI_RESET);
+		System.out.println(ColorsUtility.ANSI_GREEN + "Enter Choice (1,2,3,4,5, or 6):" + ColorsUtility.ANSI_RESET);
 	}
 	
 	public void customerInformation(Customer customer) {

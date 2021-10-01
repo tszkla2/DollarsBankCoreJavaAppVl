@@ -1,5 +1,6 @@
 package com.dollarsbank.model;
 
+//Model class for the Account
 public abstract class Account {
 	
 	public abstract void withdraw(double money);

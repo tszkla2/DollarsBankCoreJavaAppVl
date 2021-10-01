@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDateTime;
 
+//Model Class for the Savings Account
 public class SavingsAccount extends Account {
 
 	private double balance;
@@ -42,6 +43,7 @@ public class SavingsAccount extends Account {
 	}
 
 	
+	//Withdraw functionality that displays withdraw and time as well as adds it to the history
 	@Override
 	public void withdraw(double money) {
 		ldt = LocalDateTime.now();
@@ -51,6 +53,7 @@ public class SavingsAccount extends Account {
 		System.out.println();
 	}
 
+	//Deposit functionality that displays deposite and time as well as adds it to the history
 	@Override
 	public void deposit(double money) {
 		ldt = LocalDateTime.now();
@@ -66,6 +69,7 @@ public class SavingsAccount extends Account {
 		
 	}
 
+	//Adds actions to the history and only displays the 5 most recent
 	@Override
 	public void displayHistory() {
 		int size = transactionHistory.size();
@@ -85,6 +89,7 @@ public class SavingsAccount extends Account {
 		
 	}
 
+	//Transfer functionality that displays transfer and time as well as adds it to the history
 	@Override
 	public void transfer(double money, String transferID) {
 		ldt = LocalDateTime.now();

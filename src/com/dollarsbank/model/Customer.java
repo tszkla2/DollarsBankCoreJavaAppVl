@@ -2,6 +2,7 @@ package com.dollarsbank.model;
 
 import java.time.LocalDateTime;
 
+//Model Class for the Customer
 public class Customer extends SavingsAccount {
 
 	private String name;
@@ -18,6 +19,7 @@ public class Customer extends SavingsAccount {
 		setPassword(password);
 		setBalance(balance);
 		
+		//Adds initial balance amount as well as time to the customer account and adds it to the history
 		addHistory("Initial balance in account ["+ accountID +"]\n" + "Balance - " + balance + " as of " + ldt + "\n");
 		System.out.println();
 	}
